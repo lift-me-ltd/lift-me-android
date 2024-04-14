@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Lift Me"
 include(":app")
+include(":data")
+include(":domain")
