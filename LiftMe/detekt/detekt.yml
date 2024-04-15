@@ -1,0 +1,29 @@
+naming:
+  PackageNaming:
+    packagePattern: '[a-z]+([\.\_][a-z][A-Za-z0-9]*)*'
+  FunctionNaming:
+    ignoreAnnotated: [ 'Composable' ]
+style:
+  MaxLineLength:
+    maxLineLength: 140
+formatting:
+  MaximumLineLength:
+    maxLineLength: 140
+  NoConsecutiveBlankLines:
+    active: false
+  ArgumentListWrapping:
+    active: false
+  NoEmptyFirstLineInMethodBlock:
+    active: false
+complexity:
+  CyclomaticComplexMethod:
+    threshold: 20
+  LongMethod:
+    threshold: 120
+  LongParameterList:
+    constructorThreshold: 10
+    ignoreDefaultParameters: true
+    ignoreDataClasses: true
+    functionThreshold: 10
+  TooManyFunctions:
+    active: false

@@ -1,6 +1,8 @@
 [versions]
 # Gradle
 gradle_plugin = '8.1.2'
+# Detekt
+detekt_version = "1.22.0"
 # Core
 androidx = "1.12.0"
 # Lifecycle
@@ -39,10 +41,13 @@ junit = { group = "junit", name = "junit", version.ref = "junit-version"}
 # AndroidX tests
 androidx-test-ext = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext" }
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso" }
+# Detekt
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt_version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle_plugin" }
 android-library = { id = "com.android.library", version.ref = "gradle_plugin" }
 android-jetbrains = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt_version" }
 
 [bundles]
