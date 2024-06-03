@@ -1,0 +1,24 @@
+subprojects {
+    apply plugin: "io.gitlab.arturbosch.detekt"
+
+    detekt {
+        buildUponDefaultConfig = true
+        allRules = false
+        config = files("$rootDir/detekt/detekt.yml")
+        baseline = file('baseline.xml')
+        autoCorrect = false
+    }
+
+    dependencies {
+        detektPlugins(libs.detekt.formatting)
+    }
+
+    tasks.named("detekt").configure {
+        reports {
+            // Enable/Disable HTML report (default: true)
+            html.required.set(true)
+            html.outputLocation.set(file("build/reports/detekt.html"))
+        }
+    }
+
+}
