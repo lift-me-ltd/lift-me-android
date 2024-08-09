@@ -23,6 +23,6 @@ fun Text_md(
         lineHeight = lineHeight,
         color = textColor,
         fontFamily = FontFamily(Font(R.font.inter_regular)),
-        fontWeight = FontWeight(400),
+        fontWeight = FontWeight(500),
     )
 }

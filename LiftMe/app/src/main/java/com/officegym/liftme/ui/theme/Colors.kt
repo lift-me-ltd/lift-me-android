@@ -13,5 +13,6 @@ data class Colors(
     var successPrimary: Color,
     var transparent: Color,
     var black: Color,
-    var foregroundPrimary: Color
+    var foregroundPrimary: Color,
+    var white: Color
 )

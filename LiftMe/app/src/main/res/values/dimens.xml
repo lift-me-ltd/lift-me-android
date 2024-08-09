@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Const
+    <dimen name="spacing_xs">4dp</dimen>
+    // Sign up flow
+    <dimen name="social_icon_horizontal_padding">23dp</dimen>
+    <dimen name="social_icon_vertical_padding">14dp</dimen>
+</resources>

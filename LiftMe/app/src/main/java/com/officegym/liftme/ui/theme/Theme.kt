@@ -24,7 +24,8 @@ private val LMDarkImpl = Colors(
     backgroundTertiary = BackgroundTertiary,
     transparent = Transparent,
     black = Black,
-    foregroundPrimary = White
+    foregroundPrimary = White,
+    white = White,
 )
 
 private val LMLightImpl = Colors(
@@ -38,7 +39,8 @@ private val LMLightImpl = Colors(
     backgroundTertiary = BackgroundTertiary,
     transparent = Transparent,
     black = Black,
-    foregroundPrimary = White
+    foregroundPrimary = White,
+    white = White,
 )
 
 val LMMainThemeLight = LMTheme(
