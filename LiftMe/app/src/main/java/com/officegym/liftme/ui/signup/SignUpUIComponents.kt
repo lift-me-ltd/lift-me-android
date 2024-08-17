@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.officegym.liftme.R
@@ -38,4 +39,15 @@ fun SocialIcon(
         Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.spacing_xs)))
         Text_md(text = socialTitle, lineHeight = 22.sp)
     }
+}
+
+@Composable
+fun StepCompletionText(
+    currentStep: Int,
+    totalSteps: Int,
+) {
+    Text_md(
+        text = stringResource(id = R.string.step_completion, currentStep, totalSteps),
+        textColor = LocalLMTheme.current.colors.textSecondary
+    )
 }

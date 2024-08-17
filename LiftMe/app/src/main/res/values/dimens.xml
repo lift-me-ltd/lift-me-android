@@ -2,9 +2,11 @@
 <resources>
     // Const
     <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_s">8dp</dimen>
     // Sign up flow
     <dimen name="social_icon_horizontal_padding">23dp</dimen>
     <dimen name="social_icon_vertical_padding">14dp</dimen>
+    <dimen name="spacer_step_title_sign_up">10dp</dimen>
     // Buttons
     <dimen name="vertical_padding_button">14dp</dimen>
 </resources>
