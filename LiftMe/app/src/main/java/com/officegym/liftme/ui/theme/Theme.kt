@@ -14,8 +14,9 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
 private val LMDarkImpl = Colors(
-    background = BackgroundMain,
+    background = BackgroundMainDark,
     backgroundSecondary = BackgroundSecondary,
+    backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
     textPrimary = TextPrimary,
     textTertiary = TextTertiary,
@@ -29,8 +30,9 @@ private val LMDarkImpl = Colors(
 )
 
 private val LMLightImpl = Colors(
-    background = BackgroundMain,
+    background = BackgroundMainLight,
     backgroundSecondary = BackgroundSecondary,
+    backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
     textPrimary = TextPrimary,
     textTertiary = TextTertiary,
@@ -83,7 +85,7 @@ fun LiftMeTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = if (darkTheme) BackgroundMain.toArgb() else BackgroundMain.toArgb()
+            window.statusBarColor = if (darkTheme) BackgroundMainDark.toArgb() else BackgroundMainLight.toArgb()
             window.navigationBarColor = BackgroundSecondary.toArgb()
         }
     }

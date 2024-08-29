@@ -16,7 +16,7 @@ androidx-appcompat-version = "1.6.1"
 # Material 3
 androidx-compose-material3-version = "1.2.1"
 # Kotlin
-kotlin_version = '1.8.10'
+kotlin_version = '1.9.10'
 # Junit
 junit-version = "4.13.2"
 # AndroidX tests
