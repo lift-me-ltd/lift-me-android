@@ -17,6 +17,8 @@ androidx-appcompat-version = "1.6.1"
 androidx-compose-material3-version = "1.2.1"
 # Kotlin
 kotlin_version = '1.9.10'
+# Constraint layout
+androidx_constraint_version = "1.0.1"
 # Junit
 junit-version = "4.13.2"
 # AndroidX tests
@@ -43,7 +45,8 @@ androidx-test-ext = { group = "androidx.test.ext", name = "junit", version.ref =
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso" }
 # Detekt
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt_version" }
-
+# Constraint layout
+androidx-constraint-layout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidx_constraint_version"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle_plugin" }
 android-library = { id = "com.android.library", version.ref = "gradle_plugin" }

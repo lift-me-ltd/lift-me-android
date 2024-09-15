@@ -86,7 +86,7 @@ fun LiftMeTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = if (darkTheme) BackgroundMainDark.toArgb() else BackgroundMainLight.toArgb()
-            window.navigationBarColor = BackgroundSecondary.toArgb()
+            window.navigationBarColor = if (darkTheme) BackgroundMainDark.toArgb() else BackgroundMainLight.toArgb()
         }
     }
     LMThemeProvider(lmTheme = theme) {

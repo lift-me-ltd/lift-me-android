@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import com.officegym.liftme.R
 import com.officegym.liftme.ui.text_styles.Display_md
 import com.officegym.liftme.ui.theme.LocalLMTheme
@@ -31,22 +32,38 @@ fun SignUpScreen() {
         val maxWidth = maxWidth
         val maxHeight = maxHeight
         val brush = Brush.radialGradient(
-            colors = listOf(LocalLMTheme.current.colors.backgroundBlur, LocalLMTheme.current.colors.background,),
-            center = Offset(maxWidth.value /2f, maxHeight.value / 2f),
-            radius = maxHeight.value * 2,
+            colors = listOf(LocalLMTheme.current.colors.backgroundBlur, LocalLMTheme.current.colors.background),
+            center = Offset(maxWidth.value, maxHeight.value / 2f),
+            radius = maxHeight.value + maxHeight.value * 0.5f,
             tileMode = TileMode.Clamp
         )
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .background(brush)
-            .background(LocalLMTheme.current.colors.background.copy(0.4f))
-            .padding(16.dp)) {
-            Column {
+        ConstraintLayout(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(brush)
+                .background(LocalLMTheme.current.colors.background.copy(0.6f))
+                .padding(16.dp)
+        ) {
+            val (progressBar, title, input) = createRefs()
+            Row(modifier = Modifier
+                .fillMaxWidth()
+                .constrainAs(progressBar) { top.linkTo(parent.top) }) {} // TODO
+            Column(
+                modifier = Modifier.constrainAs(title) {
+                    top.linkTo(progressBar.bottom)
+                    bottom.linkTo(input.top)
+                    start.linkTo(parent.start)
+                }
+            ) {
                 StepCompletionText(1, 4)
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_step_title_sign_up)))
                 Display_md(text = "Enter your email address")
             }
-            Column {
+            Column(
+                modifier = Modifier.constrainAs(input) {
+                    bottom.linkTo(parent.bottom)
+                }
+            ) {
                 ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) {} // on click
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacing_s)))
                 BoxWithConstraints {
