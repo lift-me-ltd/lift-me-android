@@ -15,5 +15,6 @@ data class Colors(
     var transparent: Color,
     var black: Color,
     var foregroundPrimary: Color,
-    var white: Color
+    var white: Color,
+    val strokePrimary: Color
 )

@@ -16,13 +16,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.officegym.liftme.R
+import com.officegym.liftme.ui.constants.SignUpFlowSpacing
+import com.officegym.liftme.ui.constants.Spacings
 import com.officegym.liftme.ui.text_styles.Display_md
 import com.officegym.liftme.ui.theme.LocalLMTheme
+import com.officegym.liftme.ui_components.AuthTextFieldUi
 import com.officegym.liftme.ui_components.ButtonWithArrow
 
 // Mocked data
@@ -45,9 +47,19 @@ fun SignUpScreen() {
                 .padding(16.dp)
         ) {
             val (progressBar, title, input) = createRefs()
-            Row(modifier = Modifier
-                .fillMaxWidth()
-                .constrainAs(progressBar) { top.linkTo(parent.top) }) {} // TODO
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .constrainAs(progressBar) { top.linkTo(parent.top) }
+            ) {
+                SignUpProgress(
+                    options = SignUpSteps.entries.map { it.value },
+                    selectedOption = R.string.email_address,
+                    width = ((maxWidth / SignUpSteps.entries.size) - (2 * SignUpSteps.entries.size).dp)
+                )
+                Spacer(modifier = Modifier.height(Spacings.SPACING_XXL))
+                SignUpBack()
+            }
             Column(
                 modifier = Modifier.constrainAs(title) {
                     top.linkTo(progressBar.bottom)
@@ -56,7 +68,7 @@ fun SignUpScreen() {
                 }
             ) {
                 StepCompletionText(1, 4)
-                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_step_title_sign_up)))
+                Spacer(modifier = Modifier.height(SignUpFlowSpacing.STEP_TITLE_SPACING))
                 Display_md(text = "Enter your email address")
             }
             Column(
@@ -64,13 +76,22 @@ fun SignUpScreen() {
                     bottom.linkTo(parent.bottom)
                 }
             ) {
+                AuthTextFieldUi(
+                    hint = "Email address",
+                    onTextChanged = {},
+                    text = "",
+                    placeholder = "Your email address",
+                    icon = R.drawable.mail_icon,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(Spacings.SPACING_XL))
                 ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) {} // on click
-                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacing_s)))
+                Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
                 BoxWithConstraints {
                     val width = this.maxWidth / 3
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.spacing_xs)),
+                        horizontalArrangement = Arrangement.spacedBy(Spacings.SPACING_XS),
                     ) {
                         SocialIcon(socialRes = R.drawable.google_icon, modifier = Modifier.width(width)) {}
                         SocialIcon(socialRes = R.drawable.x_icon, modifier = Modifier.width(width)) {}

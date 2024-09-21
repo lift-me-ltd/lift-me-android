@@ -18,7 +18,7 @@ private val LMDarkImpl = Colors(
     backgroundSecondary = BackgroundSecondary,
     backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
-    textPrimary = TextPrimary,
+    textPrimary = TextPrimaryDark,
     textTertiary = TextTertiary,
     contentPrimary = ContentPrimary,
     successPrimary = SuccessPrimary,
@@ -27,6 +27,7 @@ private val LMDarkImpl = Colors(
     black = Black,
     foregroundPrimary = White,
     white = White,
+    strokePrimary = StrokePrimary
 )
 
 private val LMLightImpl = Colors(
@@ -34,7 +35,7 @@ private val LMLightImpl = Colors(
     backgroundSecondary = BackgroundSecondary,
     backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
-    textPrimary = TextPrimary,
+    textPrimary = TextPrimaryLight,
     textTertiary = TextTertiary,
     contentPrimary = ContentPrimary,
     successPrimary = SuccessPrimary,
@@ -43,6 +44,7 @@ private val LMLightImpl = Colors(
     black = Black,
     foregroundPrimary = White,
     white = White,
+    strokePrimary = StrokePrimary
 )
 
 val LMMainThemeLight = LMTheme(
