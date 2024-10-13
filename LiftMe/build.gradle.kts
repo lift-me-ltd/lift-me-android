@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.jetbrains) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
 }
 
 apply(from = "detekt/detekt.gradle")

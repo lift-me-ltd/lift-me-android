@@ -29,7 +29,10 @@ import com.officegym.liftme.ui_components.ButtonWithArrow
 
 // Mocked data
 @Composable
-fun SignUpScreen() {
+fun SignUpScreen(
+    signUpData: SignUpData,
+    uiAction: (SignUpActions) -> Unit
+) {
     BoxWithConstraints {
         val maxWidth = maxWidth
         val maxHeight = maxHeight
@@ -77,15 +80,15 @@ fun SignUpScreen() {
                 }
             ) {
                 AuthTextFieldUi(
-                    hint = "Email address",
-                    onTextChanged = {},
+                    hint = stringResource(id = SignUpSteps.entries[signUpData.step].value),
+                    onTextChanged = { uiAction(SignUpActions.OnValueChange(it)) },
                     text = "",
                     placeholder = "Your email address",
                     icon = R.drawable.mail_icon,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Spacer(modifier = Modifier.height(Spacings.SPACING_XL))
-                ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) {} // on click
+                ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) { uiAction(SignUpActions.Continue)}
                 Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
                 BoxWithConstraints {
                     val width = this.maxWidth / 3
