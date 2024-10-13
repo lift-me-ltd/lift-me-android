@@ -1,26 +1,17 @@
+@file:Suppress("MagicNumber")
 package com.officegym.liftme.ui.theme
 
 import androidx.compose.ui.graphics.Color
-@Suppress("MagicNumber")
-val BackgroundMain = Color(0xFFD0BCFF)
 
-@Suppress("MagicNumber")
-val BackgroundSecondary = Color(0xFFCCC2DC)
-
-@Suppress("MagicNumber")
+val BackgroundMainDark = Color(0xFF111112)
+val BackgroundMainLight = Color(0xFFFFFFFF)
+val BackgroundRadial = Color(0xFF9383F4)
+val BackgroundSecondary = Color(0xFF9383F4)
 val BackgroundTertiary = Color(0xFFEFB8C8)
-
-@Suppress("MagicNumber")
-val TextPrimary = Color(0xFF6650a4)
-
-@Suppress("MagicNumber")
+val TextPrimaryDark = Color(0xFFFFFFFF)
+val TextPrimaryLight = Color(0xFF6650a4)
 val TextSecondary = Color(0xFF625b71)
-
-@Suppress("MagicNumber")
 val TextTertiary = Color(0xFF7D5260)
-
-@Suppress("MagicNumber")
 val ContentPrimary = Color(0xFF7D5260)
-
-@Suppress("MagicNumber")
 val SuccessPrimary = Color(0xFF7D5260)
+val StrokePrimary = Color(0xFF28292B)

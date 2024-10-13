@@ -14,31 +14,37 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
 private val LMDarkImpl = Colors(
-    background = BackgroundMain,
+    background = BackgroundMainDark,
     backgroundSecondary = BackgroundSecondary,
+    backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
-    textPrimary = TextPrimary,
+    textPrimary = TextPrimaryDark,
     textTertiary = TextTertiary,
     contentPrimary = ContentPrimary,
     successPrimary = SuccessPrimary,
     backgroundTertiary = BackgroundTertiary,
     transparent = Transparent,
     black = Black,
-    foregroundPrimary = White
+    foregroundPrimary = White,
+    white = White,
+    strokePrimary = StrokePrimary
 )
 
 private val LMLightImpl = Colors(
-    background = BackgroundMain,
+    background = BackgroundMainLight,
     backgroundSecondary = BackgroundSecondary,
+    backgroundBlur = BackgroundRadial,
     textSecondary = TextSecondary,
-    textPrimary = TextPrimary,
+    textPrimary = TextPrimaryLight,
     textTertiary = TextTertiary,
     contentPrimary = ContentPrimary,
     successPrimary = SuccessPrimary,
     backgroundTertiary = BackgroundTertiary,
     transparent = Transparent,
     black = Black,
-    foregroundPrimary = White
+    foregroundPrimary = White,
+    white = White,
+    strokePrimary = StrokePrimary
 )
 
 val LMMainThemeLight = LMTheme(
@@ -81,8 +87,8 @@ fun LiftMeTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = if (darkTheme) BackgroundMain.toArgb() else BackgroundMain.toArgb()
-            window.navigationBarColor = BackgroundSecondary.toArgb()
+            window.statusBarColor = if (darkTheme) BackgroundMainDark.toArgb() else BackgroundMainLight.toArgb()
+            window.navigationBarColor = if (darkTheme) BackgroundMainDark.toArgb() else BackgroundMainLight.toArgb()
         }
     }
     LMThemeProvider(lmTheme = theme) {

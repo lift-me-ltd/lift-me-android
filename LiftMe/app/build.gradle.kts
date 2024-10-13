@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.jetbrains)
+    kotlin("kapt")
 }
 
 android {
@@ -59,10 +60,23 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.constraint.layout)
     // Test
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext)
     androidTestImplementation(libs.androidx.test.espresso)
+    kotlin("kapt")
+    // Hilt
+    implementation(libs.hilt.dagger)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.navigation)
 }
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
+
+
