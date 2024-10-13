@@ -14,5 +14,6 @@ data class SignUpData(
 
 sealed interface SignUpActions{
     data object Continue: SignUpActions
+    data object Back : SignUpActions
     data class OnValueChange(val value: String): SignUpActions
 }

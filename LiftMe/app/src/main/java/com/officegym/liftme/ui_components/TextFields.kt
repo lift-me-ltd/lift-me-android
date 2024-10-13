@@ -24,7 +24,7 @@ import com.officegym.liftme.ui.theme.LocalLMTheme
 @Composable
 fun AuthTextFieldUi(
     hint: String,
-    placeholder: String,
+    placeholder: String?,
     text: String,
     onTextChanged: (String) -> Unit,
     modifier: Modifier? = Modifier,
@@ -39,7 +39,7 @@ fun AuthTextFieldUi(
 
 @Composable
 fun PrimaryTextFieldUi(
-    placeholder: String,
+    placeholder: String?,
     text: String,
     onTextChanged: (String) -> Unit,
     modifier: Modifier? = Modifier,
@@ -51,7 +51,9 @@ fun PrimaryTextFieldUi(
         value = text,
         onValueChange = onTextChanged,
         placeholder = {
-            Text_md(text = placeholder, textColor = LocalLMTheme.current.colors.white.copy(0.4f))
+            if (placeholder != null) {
+                Text_md(text = placeholder, textColor = LocalLMTheme.current.colors.white.copy(0.4f))
+            }
         },
         leadingIcon = {
             icon?.let { Icon(painter = painterResource(id = it), contentDescription = "textField") }

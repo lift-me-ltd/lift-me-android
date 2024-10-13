@@ -9,5 +9,15 @@
     <string name="conform_your_password">Confirm your password</string>
     <string name="what_is_your_name">"What's your name?"</string>
     <string name="how_does_this_sound">How does this sound?</string>
+    <string name="email_address_placeholder">Your email address</string>
+    <string name="password_placeholder">Your strong password here</string>
+    <string name="password_confirm_placeholder">Enter the same strong password</string>
+    <string name="first_name_placeholder">First name</string>
+    <string name="last_name_placeholder">Last name</string>
     <string name="back">Back</string>
+    <string name="email_address_title">Enter your email address</string>
+    <string name="confirmation_code_title">Enter the code we sent to your email</string>
+    <string name="password_title">Choose a strong password</string>
+    <string name="name_title">Tell us more about you</string>
+    <string name="username_title">We created a username for you</string>
 </resources>

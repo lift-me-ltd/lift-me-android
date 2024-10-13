@@ -56,12 +56,12 @@ fun SignUpScreen(
                     .constrainAs(progressBar) { top.linkTo(parent.top) }
             ) {
                 SignUpProgress(
-                    options = SignUpSteps.entries.map { it.value },
-                    selectedOption = R.string.email_address,
+                    options = SignUpSteps.entries.map { it.value.hint },
+                    selectedOption = SignUpSteps.entries[signUpData.step].value.hint,
                     width = ((maxWidth / SignUpSteps.entries.size) - (2 * SignUpSteps.entries.size).dp)
                 )
                 Spacer(modifier = Modifier.height(Spacings.SPACING_XXL))
-                SignUpBack()
+                SignUpBack { uiAction(SignUpActions.Back) }
             }
             Column(
                 modifier = Modifier.constrainAs(title) {
@@ -72,7 +72,7 @@ fun SignUpScreen(
             ) {
                 StepCompletionText(1, 4)
                 Spacer(modifier = Modifier.height(SignUpFlowSpacing.STEP_TITLE_SPACING))
-                Display_md(text = "Enter your email address")
+                Display_md(text = stringResource(id = SignUpSteps.entries[signUpData.step].value.title))
             }
             Column(
                 modifier = Modifier.constrainAs(input) {
@@ -80,10 +80,10 @@ fun SignUpScreen(
                 }
             ) {
                 AuthTextFieldUi(
-                    hint = stringResource(id = SignUpSteps.entries[signUpData.step].value),
+                    hint = stringResource(id = SignUpSteps.entries[signUpData.step].value.hint),
                     onTextChanged = { uiAction(SignUpActions.OnValueChange(it)) },
-                    text = "",
-                    placeholder = "Your email address",
+                    text = signUpData.currentText,
+                    placeholder = SignUpSteps.entries[signUpData.step].value.placeholder?.let { stringResource(id = it) },
                     icon = R.drawable.mail_icon,
                     modifier = Modifier.fillMaxWidth()
                 )
