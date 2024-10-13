@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.jetbrains)
+    alias(libs.plugins.dagger.hilt.android)
     kotlin("kapt")
 }
 
@@ -79,4 +80,6 @@ kapt {
     correctErrorTypes = true
 }
 
-
+hilt {
+    enableAggregatingTask = false
+}
