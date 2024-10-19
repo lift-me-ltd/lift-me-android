@@ -1,5 +1,6 @@
 package com.officegym.liftme.ui.signup
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.officegym.liftme.R
 
@@ -8,7 +9,8 @@ enum class SignUpSteps(val value: SignUpStepsData) {
         SignUpStepsData(
             title = R.string.email_address_title,
             hint = R.string.email_address,
-            placeholder = R.string.email_address_placeholder
+            placeholder = R.string.email_address_placeholder,
+            icon = R.drawable.mail_icon
         )
     ),
     CONFIRMATION_CODE(
@@ -21,7 +23,8 @@ enum class SignUpSteps(val value: SignUpStepsData) {
         SignUpStepsData(
             title = R.string.password_title,
             hint = R.string.password,
-            placeholder = R.string.password_placeholder
+            placeholder = R.string.password_placeholder,
+            icon = R.drawable.lock_icon
         )
     ),
     NAME(
@@ -42,4 +45,5 @@ data class SignUpStepsData(
     @StringRes val title: Int,
     @StringRes val hint: Int,
     @StringRes val placeholder: Int? = null,
+    @DrawableRes val icon: Int? = null
 )

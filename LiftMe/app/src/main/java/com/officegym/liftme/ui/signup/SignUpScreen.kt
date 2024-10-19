@@ -84,9 +84,20 @@ fun SignUpScreen(
                     onTextChanged = { uiAction(SignUpActions.OnValueChange(it)) },
                     text = signUpData.currentText,
                     placeholder = SignUpSteps.entries[signUpData.step].value.placeholder?.let { stringResource(id = it) },
-                    icon = R.drawable.mail_icon,
+                    icon = SignUpSteps.entries[signUpData.step].value.icon,
                     modifier = Modifier.fillMaxWidth()
                 )
+                if (SignUpSteps.entries[signUpData.step] == SignUpSteps.PASSWORD) {
+                    Spacer(modifier = Modifier.height(Spacings.SPACING_XL))
+                    AuthTextFieldUi(
+                        hint = stringResource(id = R.string.conform_your_password),
+                        onTextChanged = { uiAction(SignUpActions.OnValueChange(it)) }, // change
+                        text = signUpData.currentText,
+                        placeholder = stringResource(id = R.string.password_confirm_placeholder),
+                        icon = R.drawable.lock_icon,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 Spacer(modifier = Modifier.height(Spacings.SPACING_XL))
                 ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) { uiAction(SignUpActions.Continue)}
                 Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
