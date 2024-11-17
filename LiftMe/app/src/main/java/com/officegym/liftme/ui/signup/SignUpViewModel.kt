@@ -17,7 +17,17 @@ class SignUpViewModel @Inject constructor() : ViewModel() {
             SignUpActions.Continue -> onContinueClick()
             is SignUpActions.OnValueChange -> onValueChange(actions.value)
             SignUpActions.Back -> onBackClick()
+            is SignUpActions.OnConfirmPasswordChange -> onConfirmPasswordChange(actions.value)
+            is SignUpActions.OnLastNameChange -> onLastNameChange(actions.value)
         }
+    }
+
+    private fun onLastNameChange(value: String) {
+        _signUpUiState.update { it.copy(lastName = value) }
+    }
+
+    private fun onConfirmPasswordChange(value: String) {
+        _signUpUiState.update { it.copy(confirmPassword = value) }
     }
 
     private fun onValueChange(value: String) {
