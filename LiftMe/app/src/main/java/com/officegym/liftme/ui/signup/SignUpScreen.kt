@@ -164,15 +164,17 @@ fun SignUpScreen(
                 Spacer(modifier = Modifier.height(Spacings.SPACING_XL))
                 ButtonWithArrow(text = stringResource(id = R.string.continue_btn_text)) { uiAction(SignUpActions.Continue) }
                 Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
-                BoxWithConstraints {
-                    val width = this.maxWidth / 3
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(Spacings.SPACING_XS),
-                    ) {
-                        SocialIcon(socialRes = R.drawable.google_icon, modifier = Modifier.width(width)) {}
-                        SocialIcon(socialRes = R.drawable.x_icon, modifier = Modifier.width(width)) {}
-                        SocialIcon(socialRes = R.drawable.facebook_icon, modifier = Modifier.width(width)) {}
+                if (SignUpSteps.entries[signUpData.step] == SignUpSteps.EMAIL) {
+                    BoxWithConstraints {
+                        val width = this.maxWidth / 3
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(Spacings.SPACING_XS),
+                        ) {
+                            SocialIcon(socialRes = R.drawable.google_icon, modifier = Modifier.width(width)) {}
+                            SocialIcon(socialRes = R.drawable.x_icon, modifier = Modifier.width(width)) {}
+                            SocialIcon(socialRes = R.drawable.facebook_icon, modifier = Modifier.width(width)) {}
+                        }
                     }
                 }
             }

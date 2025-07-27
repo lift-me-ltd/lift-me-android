@@ -20,4 +20,6 @@
     <string name="password_title">Choose a strong password</string>
     <string name="name_title">Tell us more about you</string>
     <string name="username_title">We created a username for you</string>
+    <string name="create_username_title">Create your username</string>
+    <string name="username_placeholder">Your unique username here</string>
 </resources>

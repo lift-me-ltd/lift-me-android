@@ -35,8 +35,10 @@ enum class SignUpSteps(val value: SignUpStepsData) {
     ),
     USERNAME(
         SignUpStepsData(
-            title = R.string.username_title,
+            title = R.string.create_username_title,
             hint = R.string.how_does_this_sound,
+            placeholder = R.string.username_placeholder,
+            icon = R.drawable.user_circle,
         )
     ),
 }
