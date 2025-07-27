@@ -1,9 +1,7 @@
 package com.officegym.liftme.ui.onboarding
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -15,16 +13,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -34,8 +28,6 @@ import com.officegym.liftme.ui.text_styles.Display_md
 import com.officegym.liftme.ui.text_styles.Text_md
 import com.officegym.liftme.ui.theme.Blue
 import com.officegym.liftme.ui.theme.LightGray
-import com.officegym.liftme.ui.theme.LocalLMTheme
-import com.officegym.liftme.ui_components.ButtonWithArrow
 import com.officegym.liftme.ui_components.ButtonWithShadow
 
 @Composable
