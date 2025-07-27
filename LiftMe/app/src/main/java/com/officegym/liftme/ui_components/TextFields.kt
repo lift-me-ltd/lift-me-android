@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.Icon
 import androidx.compose.material3.TextField
@@ -23,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
@@ -43,11 +45,12 @@ fun AuthTextFieldUi(
     @DrawableRes icon: Int? = null,
     isPassword: Boolean = false,
     isEnabled: Boolean = false,
+    isEmail: Boolean = false,
 ) {
     Column {
         Text_sm(text = hint ?: "")
         Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
-        PrimaryTextFieldUi(placeholder, text, onTextChanged, modifier, icon, isPassword)
+        PrimaryTextFieldUi(placeholder, text, onTextChanged, modifier, icon, isPassword, isEmail = isEmail)
     }
 }
 
@@ -60,6 +63,7 @@ fun PrimaryTextFieldUi(
     @DrawableRes icon: Int? = null,
     isPassword: Boolean = false,
     isEnabled: Boolean = false,
+    isEmail: Boolean = false,
 ) {
     val currentModifier =
         modifier ?: Modifier
@@ -79,7 +83,12 @@ fun PrimaryTextFieldUi(
         },
         singleLine = true,
         colors = textFieldsColours(),
-        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None
+        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
+        keyboardOptions = KeyboardOptions(
+            keyboardType = if (isPassword) KeyboardType.Password
+            else if (isEmail) KeyboardType.Email
+            else KeyboardType.Unspecified
+        )
     )
 }
 
@@ -144,7 +153,6 @@ fun VerificationCodeField(size: Dp) {
         // text?
     }
 }
-
 
 
 @Composable

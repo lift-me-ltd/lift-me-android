@@ -133,7 +133,8 @@ fun SignUpScreen(
                         text = signUpData.currentText,
                         placeholder = SignUpSteps.entries[signUpData.step].value.placeholder?.let { stringResource(id = it) },
                         icon = SignUpSteps.entries[signUpData.step].value.icon,
-                        isPassword = if (SignUpSteps.entries[signUpData.step] == SignUpSteps.PASSWORD) { true } else { false }
+                        isPassword = SignUpSteps.entries[signUpData.step] == SignUpSteps.PASSWORD,
+                        isEmail = SignUpSteps.entries[signUpData.step] == SignUpSteps.EMAIL
                     )
                 }
                 if (SignUpSteps.entries[signUpData.step] == SignUpSteps.PASSWORD) {
