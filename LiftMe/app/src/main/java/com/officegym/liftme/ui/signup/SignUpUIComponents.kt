@@ -88,14 +88,16 @@ fun SignUpProgress(
 }
 
 @Composable
-fun SignUpBack() {
+fun SignUpBack(onClick: () -> Unit) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        Image(
-            painter = painterResource(id = R.drawable.back_arrow),
-            contentDescription = "back",
-            modifier = Modifier.size(20.dp)
-        )
-        Spacer(modifier = Modifier.width(Spacings.SPACING_XXS))
-        Text_md(text = stringResource(id = R.string.back), textColor = LocalLMTheme.current.colors.white.copy(0.4f))
+        Row(Modifier.clickable { onClick() }) {
+            Image(
+                painter = painterResource(id = R.drawable.back_arrow),
+                contentDescription = "back",
+                modifier = Modifier.size(20.dp)
+            )
+            Spacer(modifier = Modifier.width(Spacings.SPACING_XXS))
+            Text_md(text = stringResource(id = R.string.back), textColor = LocalLMTheme.current.colors.white.copy(0.4f))
+        }
     }
 }
