@@ -20,7 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
-import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -31,7 +32,7 @@ import com.officegym.liftme.ui.text_styles.Display_md
 import com.officegym.liftme.ui.theme.LocalLMTheme
 import com.officegym.liftme.ui_components.AuthTextFieldUi
 import com.officegym.liftme.ui_components.ButtonWithArrow
-import com.officegym.liftme.ui_components.VerificationCodeUI
+import com.officegym.liftme.ui_components.OTPField
 
 // Mocked data
 @Composable
@@ -59,8 +60,9 @@ fun SignUpScreen(
                 .background(LocalLMTheme.current.colors.background.copy(0.6f))
                 .padding(16.dp)
         ) {
-            val configuration = LocalConfiguration.current
-            val screenWidth = configuration.screenWidthDp.dp - 32.dp
+            val configuration = LocalWindowInfo.current.containerSize.width
+            val density = LocalDensity.current
+            val screenWidth = with(density) { configuration.toDp() } - 32.dp
             val (progressBar, title, input) = createRefs()
             Column(
                 modifier = Modifier
@@ -124,8 +126,19 @@ fun SignUpScreen(
                         )
                     }
                 } else if (SignUpSteps.entries[signUpData.step] == SignUpSteps.CONFIRMATION_CODE) {
-                    val width = (screenWidth - (5*8).dp) / 6
-                    VerificationCodeUI(width)
+                    val width = (screenWidth - (5 * 8).dp) / 6
+                    OTPField(
+                        codeLength = 6,
+                        initialCode = signUpData.currentText,
+                        onTextChanged = { text ->
+                            if (text.length <= 6) {
+                                uiAction(SignUpActions.OnValueChange(text))
+                            }
+                        },
+                        onClick = {},
+                        width = width,
+                        visualTransformation = null,
+                    )
                 } else {
                     AuthTextFieldUi(
                         hint = stringResource(id = SignUpSteps.entries[signUpData.step].value.hint),

@@ -141,37 +141,3 @@ fun textFieldsColours(): TextFieldColors {
     )
 }
 
-@Composable
-fun VerificationCodeField(size: Dp) {
-    Box(
-        modifier = Modifier
-            .size(size)
-            .clip(RoundedCornerShape(12.dp))
-            .border(1.dp, LocalLMTheme.current.colors.strokePrimary, RoundedCornerShape(12.dp))
-            .background(LocalLMTheme.current.colors.fillPrimary)
-    ) {
-        // text?
-    }
-}
-
-
-@Composable
-fun VerificationCodeUI(width: Dp) {
-    Column {
-        Text_sm(text = stringResource(id = R.string.confirmation_code))
-        Spacer(modifier = Modifier.height(Spacings.SPACING_MD))
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            VerificationCodeField(width)
-            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
-            VerificationCodeField(width)
-            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
-            VerificationCodeField(width)
-            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
-            VerificationCodeField(width)
-            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
-            VerificationCodeField(width)
-            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
-            VerificationCodeField(width)
-        }
-    }
-}
