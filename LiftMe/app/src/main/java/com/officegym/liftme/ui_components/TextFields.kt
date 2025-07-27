@@ -162,6 +162,8 @@ fun VerificationCodeUI(width: Dp) {
             VerificationCodeField(width)
             Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
             VerificationCodeField(width)
+            Spacer(modifier = Modifier.width(Spacings.SPACING_MD))
+            VerificationCodeField(width)
         }
     }
 }

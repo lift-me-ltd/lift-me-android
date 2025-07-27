@@ -1,5 +1,6 @@
 package com.officegym.liftme.ui.signup
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -38,6 +39,10 @@ fun SignUpScreen(
     signUpData: SignUpData,
     uiAction: (SignUpActions) -> Unit,
 ) {
+    BackHandler(enabled = signUpData.step != SignUpSteps.EMAIL.ordinal) {
+        uiAction(SignUpActions.Back)
+    }
+
     BoxWithConstraints {
         val maxWidth = maxWidth
         val maxHeight = maxHeight
@@ -77,7 +82,7 @@ fun SignUpScreen(
                     start.linkTo(parent.start)
                 }
             ) {
-                StepCompletionText(1, 4)
+                StepCompletionText(signUpData.step.inc(), SignUpSteps.entries.size)
                 Spacer(modifier = Modifier.height(SignUpFlowSpacing.STEP_TITLE_SPACING))
                 Display_md(text = stringResource(id = SignUpSteps.entries[signUpData.step].value.title))
             }
