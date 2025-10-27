@@ -22,7 +22,7 @@ fun Text_md(
         fontSize = 16.sp,
         lineHeight = lineHeight,
         color = textColor,
-        fontFamily = FontFamily(Font(R.font.inter_regular)),
+        fontFamily = FontFamily(Font(R.font.inter_medium)),
         fontWeight = FontWeight(500),
     )
 }
