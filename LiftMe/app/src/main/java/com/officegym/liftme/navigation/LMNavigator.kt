@@ -16,6 +16,12 @@ class LMNavigator: Navigator {
                     screen.getGraphPath(),
                 )
             }
+
+            Screen.Welcome -> {
+                navHostController.navigate(
+                    screen.getGraphPath(),
+                )
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Lift Me</string>
+    <string name="app_name">LiftMe</string>
+    <string name="aoo_slogan">Better your health every day.</string>
     // Sign up flow
     <string name="step_completion">Step %1$d / %2$d</string>
     <string name="continue_btn_text">Continue</string>
@@ -22,4 +23,16 @@
     <string name="username_title">We created a username for you</string>
     <string name="create_username_title">Create your username</string>
     <string name="username_placeholder">Your unique username here</string>
+    // On boarding flow
+    <string name="streamline_your_health">STREAMLINE YOUR HEALTH</string>
+    <string name="streamline_your_health_description">Tracking your steps, fitness, sleep and others through so many apps can be hard. With LiftMe you can see it all here.</string>
+    <string name="challenge_your_friends">CHALLENGE YOUR FRIENDS</string>
+    <string name="challenge_your_friends_description">With LiftMe you can improve your health and habits while also sharing your progress with your friends.</string>
+    <string name="train_with_everyone">TRAIN WITH EVERYONE</string>
+    <string name="train_with_everyone_description">With LiftMe you can improve your health and habits while also sharing your progress with your friends.</string>
+    <string name="turn_up_volume">TURN UP THE VOLUME</string>
+    <string name="turn_up_volume_description">With LiftMe you can improve your health and habits while also sharing your progress with your friends.</string>
+    // Welcome
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
 </resources>

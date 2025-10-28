@@ -1,0 +1,100 @@
+package com.officegym.liftme.ui.welcome
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import com.officegym.liftme.R
+import com.officegym.liftme.ui.text_styles.Display_md
+import com.officegym.liftme.ui.text_styles.Text_md
+import com.officegym.liftme.ui.theme.Blue
+import com.officegym.liftme.ui.theme.LightGray
+import com.officegym.liftme.ui_components.ButtonWithShadow
+
+
+@Composable
+fun WelcomeScreen(
+    onSignUpClicked: () -> Unit
+) {
+    BoxWithConstraints {
+        val maxWidth = maxWidth
+        val maxHeight = maxHeight
+        val brush = Brush.radialGradient(
+            colors = listOf(Blue, Color.Black),
+            center = Offset(maxWidth.value, maxHeight.value / 2f),
+            radius = maxHeight.value + maxHeight.value * 0.8f,
+            tileMode = TileMode.Clamp
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(brush),
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black.copy(0.6f)),
+            )
+            Column(
+                modifier = Modifier.align(Alignment.Center),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Display_md(text = stringResource(R.string.app_name))
+                Spacer(Modifier.height(8.dp))
+                Text_md(text = stringResource(R.string.aoo_slogan), textColor = Color.White)
+            }
+
+            Box(modifier = Modifier.align(Alignment.BottomCenter), contentAlignment = Alignment.Center) {
+                Image(
+                    painter = painterResource(R.drawable.doc),
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.offset(y = 50.dp)
+                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter)
+                        .padding(16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(6.dp)
+                ) {
+                    ButtonWithShadow(
+                        text = stringResource(R.string.login),
+                        onClick = {},
+                        modifier = Modifier.weight(1f),
+                        background = Color.Black,
+                        arrowColor = Color.White,
+                    )
+                    ButtonWithShadow(
+                        text = stringResource(R.string.signup),
+                        onClick = onSignUpClicked,
+                        modifier = Modifier.weight(1f),
+                        textColor = Color.Black,
+                        borderColor = LightGray,
+                    )
+                }
+            }
+        }
+    }
+}
